@@ -1,0 +1,2 @@
+class Baristahint < ApplicationRecord
+end

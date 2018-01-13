@@ -1,0 +1,8 @@
+<h1>All hints</h1>
+
+<ul id="hints">
+  <% @hints.each do |hint| %>
+  <li><%= link_to hint.title, hint_path(hint), class: "hint_title" %></li>
+  <%= link_to "leave a hint", new_hint_path, class: "new_hint" %>
+  <% end %>
+</ul>
