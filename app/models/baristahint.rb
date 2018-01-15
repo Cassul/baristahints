@@ -1,2 +1,0 @@
-class Baristahint < ApplicationRecord
-end
