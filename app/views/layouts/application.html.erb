@@ -24,6 +24,12 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="/">Baristahints</a>
+    <% if logged_in? %>
+    <%= link_to "Log out", logout_path, method: :delete %> <!-- make those three same color as other links in navbar -->
+    <%= link_to "Profile", current_user %> <!-- make those three same color as other links in navbar -->
+    <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +42,10 @@
           <a class="nav-link disabled" href="/hints/new">Leave hint</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sign_up">Sign up/Login</a>
+          <a class="nav-link" href="/users">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">

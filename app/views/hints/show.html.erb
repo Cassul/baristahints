@@ -5,6 +5,8 @@
 <%= link_to "<< Back to all hints", hints_path %>
 <br>
 
+<% if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id] =%>
 <%= link_to "edit", edit_hint_path(@hint) %>
 
 <%= link_to "delete", hint_path(@hint), method: :delete %>
+<% end %>
