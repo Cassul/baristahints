@@ -4,6 +4,7 @@ class CreateHints < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :body
       t.text :image_url
+      t.references :users, foreign_key: true
 
       t.timestamps
     end
