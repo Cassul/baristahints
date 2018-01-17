@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :hints
   resources :users
   post '/hint', to: 'comments#create'
+  get 'hints/:id', to:'hints#show'
   delete '/comment/delete', to:'comments#destroy'
 end

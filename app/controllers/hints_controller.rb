@@ -6,6 +6,11 @@ class HintsController < ApplicationController
 
   def show 
     @hint = Hint.find(params[:id])
+    @c = Comment.find_by(id: params['comment'])
+    if @c
+      @text = @c.body
+    else @text = ""
+    end
     show_comments
   end
 

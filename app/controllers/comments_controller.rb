@@ -10,7 +10,8 @@ class CommentsController < ApplicationController
     @comment.user_id = params['comment']
     @comment.hint_id = params['hint']
     @comment.save
-    redirect_to "/hints/#{params['hint']}"
+    flash.notice = "comment added"
+    redirect_to hint_path(@comment.hint_id) #{}"/hints/#{params['hint']}"
   end
 
   def update
@@ -19,7 +20,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params['id'])
     @comment.destroy
-    redirect_to "/hints/#{params['hint']}"
+    flash.notice = "comment deleted"
+    redirect_to hint_path(@comment.hint_id)
   end
 
   def index

@@ -5,17 +5,20 @@
 <%= link_to "<< Back to all hints", hints_path %>
 <br>
 
-<% if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1 %>
+<% if logged_in?
+    if  @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1 %>
 <%= link_to "edit", edit_hint_path(@hint) %>
 
 <%= link_to "delete", hint_path(@hint), method: :delete %>
-<% end %>
+
 
 <form action="/hint?hint=<%= @hint.id %>&comment=<%= @current_user.id%>" method="post">
-  <input type="text" name="body">
+  <input type="text" name="body" value="<%= @text %>">
   <button>leave your comment</button>
 </form>
 
+<% end %>
+<% end %>
 
 <% @comments.each do |comment| %>
 <div class="col-sm-5">
@@ -28,14 +31,16 @@
       <%= comment.body %>
     </div>
   </div>
+  <% if logged_in?
+    if  @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1 %>
   <% if current_user.username == comment.author_name || current_user.id === 1 %>
   <form action="/comment/delete?id=<%= comment.id %>&hint=<%= comment.hint_id %>" method="post">
   <input type="hidden" name="_method" value="delete">
     <button>delete</button>
   </form>
-  <form action="/comment/edit" method="get">
-    <button>edit</button>
-  </form>
+  <a href="/hints/<%= comment.hint_id %>?comment=<%= comment.id %>">edit</a>
   <% end %>
 </div>
+<% end %>
+<% end %>
 <% end %>
