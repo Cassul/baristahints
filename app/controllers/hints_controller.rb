@@ -6,6 +6,7 @@ class HintsController < ApplicationController
 
   def show 
     @hint = Hint.find(params[:id])
+    show_comments
   end
 
   def create
@@ -28,7 +29,7 @@ class HintsController < ApplicationController
   end
 
   def edit 
-    if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id]
+    if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1
     @hint = Hint.find(params[:id])
     else 
       redirect_to hint_path
@@ -36,7 +37,7 @@ class HintsController < ApplicationController
   end
 
   def destroy
-    if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id]
+    if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1
     @hint = Hint.destroy(params[:id])
     flash.notice = "Hint - '#{@hint.title}' deleted!"
     redirect_to hints_path

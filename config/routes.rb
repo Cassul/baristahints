@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#destroy'
   resources :hints
   resources :users
-  resources :comments
+  post '/hint', to: 'comments#create'
+  delete '/comment/delete', to:'comments#destroy'
 end
