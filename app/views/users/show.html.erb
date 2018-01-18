@@ -1,0 +1,15 @@
+<h1>Hello, <%= @user.username %>!</h1>
+<p>Here is your hints</p>
+<ol>
+  <% @hints.each do |hint| %>
+  <li><a href="<%= hint_path(hint.id)%>"><%= hint.title %></a></li>
+  <% end %>
+</ol>
+<p>And here is your comments</p>
+<ol>
+  <% @comments.each do |comment| %>
+  <li><a href="<%= hint_path(comment.hint_id)%>"><%= comment.body %></a></li>
+  <% end %>
+</ol>
+
+<h1>Your scores are <%= @score %></h1>

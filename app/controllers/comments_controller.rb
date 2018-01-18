@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   protect_from_forgery
+
   def new
   end
 
@@ -11,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.hint_id = params['hint']
     @comment.save
     flash.notice = "comment added"
-    redirect_to hint_path(@comment.hint_id) #{}"/hints/#{params['hint']}"
+    redirect_to hint_path(@comment.hint_id) 
   end
 
   def update

@@ -4,10 +4,38 @@
 }
 
 html, body {
-  height: 100%;
   width: 100%;
 }
 
 .container {
-  height: 100%
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.admin {
+  color: red;
+}
+
+.main {
+  width: 100%;
+}
+
+.hints {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.login-btn {
+  padding-top: 20px;
+}
+
+.new-user {
+  padding-top: 20px;  
 }
