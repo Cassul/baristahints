@@ -69,3 +69,11 @@ main {
   display: flex;
   flex-direction: row;
 }
+
+.all_hints {
+  font-size: 20px;
+}
+
+.list-group-item {
+  width: 30%;
+}
