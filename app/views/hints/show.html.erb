@@ -2,17 +2,21 @@
   <p><%= @hint.body %></p>
   <img src="<%= @hint.image_url%>">
   <br>
+  <div class="hint_opt">
+    <div>
   <%= link_to "<< Back to all hints", hints_path %>
+  </div>
   <br>
-
   <% if logged_in?
       if  @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1 %>
-  <%= link_to "edit", edit_hint_path(@hint) %>
+      <div>
+  <%= link_to "edit", edit_hint_path(@hint), class:"badge badge-info under_hint" %>
 
-  <%= link_to "delete", hint_path(@hint), method: :delete %>
+  <%= link_to "delete", hint_path(@hint), method: :delete ,  class:"badge badge-danger under_hint" %>
   <% end %>
   <% end %>
-
+  </div>
+  </div>
   <% if logged_in? %>
   <form action="/hint?hint=<%= @hint.id %>&comment=<%= @current_user.id%>" method="post">
     <input type="text" name="body" value="<%= @text %>">
@@ -44,7 +48,7 @@
     <input type="hidden" name="_method" value="delete">
       <button class="btn btn-danger">delete</button>
     </form>
-    <a href="/hints/<%= comment.hint_id %>?comment=<%= comment.id %>">edit</a>
+    <a href="/hints/<%= comment.hint_id %>?comment=<%= comment.id %>" class="badge badge-info">edit</a>
     <% end %>
   </div>
   <% end %>
