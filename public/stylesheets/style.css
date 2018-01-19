@@ -3,13 +3,22 @@
   margin-top: 10px 
 }
 
-html, body {
-  width: 100%;
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 80%;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .container {
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
 
@@ -19,13 +28,9 @@ html, body {
   color: red;
 }
 
-.main {
-  width: 100%;
-}
 
 .hints {
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -37,5 +42,16 @@ html, body {
 }
 
 .new-user {
-  padding-top: 20px;  
+  padding-top: 20px;    
+}
+
+.index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  width: 30%;
 }

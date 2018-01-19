@@ -1,0 +1,28 @@
+<p>hello, Aysa</p>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Score</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @rating.each do |key, value, i| %>
+    <tr>
+      <th scope="row"><%= key %></th>
+      <td><%= value[1] %></td>
+      <td><%= value[0] %></td>
+      <td><%= value[2] %></td>
+      <form action="/users/<%= key %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <td><button>delete</button></td>
+      </form>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

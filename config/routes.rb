@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/hint', to: 'comments#create'
   get 'hints/:id', to:'hints#show'
   delete '/comment/delete', to:'comments#destroy'
+  get '/search_result', to: 'search#index'
 end

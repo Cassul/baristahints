@@ -1,0 +1,30 @@
+<ol>
+  <h1>Results in hints title</h1>
+  <% if !@in_name.blank? %>
+    <% @in_name.each do |result| %>
+  <li><a href="hints/<%=result.id %>"><%= result.title %></a></li>
+    <% end %>
+    <% else %>
+    <p>nothing found</p>
+    <% end %>
+</ol>
+<ol>
+  <h1>Results in text of a hint</h1>
+  <% if !@in_body.blank? %>
+    <% @in_body.each do |result| %>
+  <li><a href="hints/<%=result.id %>"><%= result.body %></a></li>
+    <% end %>
+    <% else %>
+    <p>nothing found</p>
+    <% end %>
+</ol>
+<ol>
+  <h1>Results in comments</h1>
+  <% if !@in_comments.blank? %>
+  <% else %>
+  <p>nothing found</p>
+  <% end %>
+    <% @in_comments.each do |result| %>
+  <li><a href="hints/<%=result.hint_id %>"><%= result.body %></a></li>
+    <% end %>
+</ol> 
