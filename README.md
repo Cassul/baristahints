@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+find a project on www.baristahints.com - as it deployed to a Heroku might take time to "wake up dyno" and open app
 
-Things you may want to cover:
+* Ruby version '2.4.3'
 
-* Ruby version
+* System dependencies - in a Gemfile
 
-* System dependencies
+# App build with Ruby on Rails on a backend, database: Postgres, layout was build using Bootstrap Carousel template
 
-* Configuration
+Application purpose - give an ability for baristas to share their hints about work and get points, respect and potential presents in reward=)
 
-* Database creation
 
-* Database initialization
+App functionality:
 
-* How to run the test suite
+1. App has sign up and login page with three types of users: Admin, Authorized user and non-authorized user
+2. Store data about Users in a database(username, email, encoded password(Bcrypt 3.1.11))
+3. Store data about hints and comments in a database with ability for authorized users to edit and delete **their** posts and comments(Admin can edit and delete everything)
+4. Has an "admin panel" with all users data and ability for an admin to delete users
+5. Has a search bar that operates with database and returns results in three categories: hints title, "body" and commentaries
 
-* Services (job queues, cache servers, search engines, etc.)
+Future plans:
 
-* Deployment instructions
+1. Style app
+2. Add more flash notification
+3. Finish with activerecord validations
+4. Enable google search bar
+5. Enable "reddit-like" option to promote posts
+6. Increase app security
 
-* ...
