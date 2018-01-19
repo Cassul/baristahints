@@ -39,9 +39,10 @@
     </div>
     <% if logged_in? %>
     <% if current_user.username == comment.author_name || current_user.id === 1 %>
+    <div class="options">
     <form action="/comment/delete?id=<%= comment.id %>&hint=<%= comment.hint_id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-      <button>delete</button>
+      <button class="btn btn-danger">delete</button>
     </form>
     <a href="/hints/<%= comment.hint_id %>?comment=<%= comment.id %>">edit</a>
     <% end %>

@@ -55,3 +55,12 @@ body {
 .form-control {
   width: 30%;
 }
+
+.col-sm-5 {
+  margin-top: 30px;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+}
