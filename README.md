@@ -27,4 +27,5 @@ Future plans:
 4. Enable google search bar
 5. Enable "reddit-like" option to promote posts
 6. Increase app security
+7. Add image uploading
 
