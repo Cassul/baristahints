@@ -6,12 +6,10 @@ class UsersController < ApplicationController
       @user = User.new
       @user = User.new(user_params)
       @user.save
-      if @user.id
-      flash.notice = "New user - '#{@user.username}' added!"
-      redirect_to login_path 
+      if @user.save
+      redirect_to login_path, alert: "New user - '#{@user.username}' added!"
       else
-        flash.notice = "Fill all the forms"
-        redirect_to new_user_path
+        redirect_to new_user_path, alert: "Fill all the forms"
       end
     end
 

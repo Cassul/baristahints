@@ -4,7 +4,13 @@ class User < ApplicationRecord
   has_many :hints,
   dependent: :destroy
   has_secure_password
-  validates :username, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
+  validates :username, 
+    presence: true, 
+    length: {in: 3..20}
+  validates :email, 
+  presence: true,
+  uniqueness: true,
+  confirmation: true
+  validates :password,
+  presence: true
 end

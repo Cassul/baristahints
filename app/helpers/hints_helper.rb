@@ -1,7 +1,7 @@
 module HintsHelper
 
   def hint_params
-    params.require(:hint).permit(:title, :body, :image_url)
+    params.require(:hint).permit(:title, :body, :image)
   end
 
   def show_comments
