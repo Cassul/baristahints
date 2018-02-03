@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.hint_id = params['hint']
     @comment.save
     flash.notice = "comment added"
-    redirect_to hint_path(@comment.hint_id) 
+    redirect_to hint_path(@comment.hint_id)
   end
 
   def update

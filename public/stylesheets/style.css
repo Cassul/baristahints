@@ -17,7 +17,7 @@ body {
 }
 
 main {
-  min-height: 600px;
+  
 }
 
 
@@ -26,7 +26,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: center;
 }
 
 .admin {
@@ -46,8 +46,8 @@ main {
   padding-top: 20px;
 }
 
-.new-user {
-  padding-top: 20px;    
+.new_user {
+  margin-top: 20px;    
 }
 
 .index {
@@ -85,4 +85,17 @@ main {
 .hint-opt {
   display: flex;
   flex-direction: row;
+}
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.new_hint {
+  width: 60%;
+  position: center;
+  height: 60%;
 }
