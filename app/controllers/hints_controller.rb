@@ -59,4 +59,5 @@ class HintsController < ApplicationController
     redirect_to hint_path(@hint)
   end
 
+
 end

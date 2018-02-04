@@ -99,3 +99,13 @@ main {
   position: center;
   height: 60%;
 }
+
+.tags {
+  display: flex;
+  flex-direction: row;
+}
+
+.tags > a {
+  color: beige;
+  margin: 2px;
+}

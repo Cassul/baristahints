@@ -1,0 +1,7 @@
+<h1>Hints Tagged with <%= @tag.tag_name %></h1>
+
+<ul>
+  <% @tag.hints.each do |hint| %>
+    <li><%= link_to hint.title, hint_path(hint) %></li>
+  <% end %>
+</ul>
