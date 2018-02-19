@@ -2,6 +2,7 @@ class HintsController < ApplicationController
   include HintsHelper
   def index
     @hints = Hint.all
+    @likes = Like.all
   end
 
   def show 
@@ -12,6 +13,7 @@ class HintsController < ApplicationController
     else @text = ""
     end
     show_comments
+    show_likes
   end
 
   def create
@@ -43,9 +45,9 @@ class HintsController < ApplicationController
 
   def destroy
     if logged_in? && @current_user.id === Hint.find(params[:id])[:user_id] || @current_user.id === 1
-    @hint = Hint.destroy(params[:id])
-    flash.notice = "Hint - '#{@hint.title}' deleted!"
-    redirect_to hints_path
+      @hint = Hint.destroy(params[:id])
+      flash.notice = "Hint - '#{@hint.title}' deleted!"
+      redirect_to hints_path
     else 
       redirect_to hint_path
     end

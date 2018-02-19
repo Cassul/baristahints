@@ -8,6 +8,10 @@ module HintsHelper
     @comments = Comment.where(hint_id: params[:id])
   end
 
+  def show_likes
+    @likes = Like.where(hint_id: params[:id])
+  end
+
   def comment_params
     params.require(:comment).permit(:author_name, :body)
   end

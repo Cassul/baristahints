@@ -3,9 +3,14 @@
 
 <ul id="hints">
   <% @hints.each do |hint| %>
-  <li><%= link_to hint.title, hint_path(hint), class:"list-group-item list-group-item-action" %></li>
+  <li><%= link_to hint.title, hint_path(hint), class:"list-group-item list-group-item-action" %><%= how_many_likes(hint.id) %>
+  </li>
    <% end %>
   <%= link_to "leave a hint", new_hint_path, class:"badge badge-success" %>
 </ul>
 </div>
-
+<!-- <div id="container">Loading...</div>
+<script src="/javascripts/react.js"></script>
+<script src="/javascripts/react-dom.js"></script>
+<script src="/javascripts/babel-browser.min.js"></script>
+<script type="text/babel" src="/javascripts/index.jsx"></script> -->

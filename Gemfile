@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.11'
 gem 'carrierwave'
 gem 'fog-aws'
-
+gem 'carrierwave-imageoptimizer'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'activerecord'

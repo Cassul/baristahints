@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204025724) do
+ActiveRecord::Schema.define(version: 20180219204015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clikes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_clikes_on_comment_id"
+    t.index ["user_id"], name: "index_clikes_on_user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "author_name"
@@ -35,6 +44,15 @@ ActiveRecord::Schema.define(version: 20180204025724) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.index ["user_id"], name: "index_hints_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "hint_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hint_id"], name: "index_likes_on_hint_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -60,9 +78,13 @@ ActiveRecord::Schema.define(version: 20180204025724) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "clikes", "comments"
+  add_foreign_key "clikes", "users"
   add_foreign_key "comments", "hints"
   add_foreign_key "comments", "users"
   add_foreign_key "hints", "users"
+  add_foreign_key "likes", "hints"
+  add_foreign_key "likes", "users"
   add_foreign_key "taggings", "hints"
   add_foreign_key "taggings", "tags"
 end
