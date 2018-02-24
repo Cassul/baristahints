@@ -2,11 +2,13 @@ class HintsController < ApplicationController
   include HintsHelper
   def index
     @hints = Hint.all
+    @hints = @hints.sort_by {|h| h.likes.length}.reverse!
     @likes = Like.all
   end
 
   def show 
     @hint = Hint.find(params[:id])
+    @like = Like.where(hint_id: params[:id]).length
     @c = Comment.find_by(id: params['comment'])
     if @c
       @text = @c.body

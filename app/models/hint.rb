@@ -1,6 +1,7 @@
 class Hint < ApplicationRecord
   has_many :comments, dependent: :delete_all
   has_many :taggings, dependent: :delete_all
+  has_many :likes, dependent: :delete_all
   has_many :tags, through: :taggings
   belongs_to :user
   mount_uploader :image, ImageUploader

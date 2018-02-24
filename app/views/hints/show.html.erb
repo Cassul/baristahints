@@ -23,6 +23,14 @@
     <% end %> 
   </div>
   <% if logged_in? %>
+  <input type="hidden" value="<%= @like %>" id="amountOfLikes">
+  <input type="hidden" value="<%= @hint.id %>" id="hintId">
+  <button class="
+  <% if Like.where(hint_id: params[:id], user_id: current_user.id).length < 1 %>
+  btn btn-light
+  <% else %>btn btn-danger
+  <% end %>" id="likeBtn">like</button>
+  <span id="likesTotal"><%= @like %></span>
   <form action="/hint?hint=<%= @hint.id %>&comment=<%= @current_user.id%>" method="post">
     <input type="text" name="body" value="<%= @text %>">
     <button>leave your comment</button>
@@ -58,3 +66,35 @@
   </div>
   <% end %>
   <% end %>
+
+<script>
+  var likeButton = document.getElementById('likeBtn');
+  var id = $('#hintId').val();
+  var amountOfLikes = $('#amountOfLikes').val();
+  likeButton.addEventListener('click', likeButtonClicked);
+  function likeButtonClicked () {
+   if ($(this).attr('class').trim() === 'btn btn-light') {
+    $('#likesTotal').text(Number($('#likesTotal').text()) + 1);
+    this.setAttribute('class', 'btn btn-danger');
+    var options = {
+      url: '/likes',
+      method: 'post',
+      data: { hint_id: id}
+    };
+    $.ajax(options).done(function (res) {
+      console.log(res);
+    });
+    } else {
+      $('#likesTotal').text(Number($('#likesTotal').text()) - 1);
+      this.setAttribute('class', 'btn btn-light');
+      var option = {
+      url: '/likes/' + id,
+      method: 'delete',
+      data: { hint_id: id}
+      };
+      $.ajax(option).done(function (res) {
+        console.log(res);
+      });
+    }
+  }
+</script>
