@@ -19,10 +19,6 @@ img {
   width: 800px;
 }
 
-
-
-
-
 .admin {
   color: red;
 }
@@ -102,4 +98,9 @@ img {
 .tags > a {
   color: beige;
   margin: 2px;
+}
+
+.carousel {
+  max-width: 100%; 
+  margin: 0 auto;
 }
