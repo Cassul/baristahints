@@ -12,10 +12,10 @@
   <span id="likesTotal<%= hint.id %>"><%= Like.where(hint_id: hint.id).length %></span>
   <% end %> 
   <% end %> 
-  <% if logged_in? %>
+</ul>
+<% if logged_in? %>
   <%= link_to "leave a hint", new_hint_path, class:"badge badge-success" %>
   <% end %> 
-</ul>
 </div>
 <script type="text/javascript">
   var likeButtons = $('.btn');

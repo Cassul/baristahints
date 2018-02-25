@@ -34,4 +34,8 @@ class UsersController < ApplicationController
       @user.destroy
       redirect_to users_path
     end
+
+    def reviews
+      render 'reviews'
+    end
 end
