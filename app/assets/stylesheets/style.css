@@ -21,10 +21,6 @@ img {
 
 
 
-.container {
-  display: flex;
-}
-
 .admin {
   color: red;
 }
