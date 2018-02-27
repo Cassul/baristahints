@@ -1,6 +1,6 @@
   <h1><%= @hint.title %></h1>
   <p><%= @hint.body %></p>
-  <img src="<%= @hint.image_url%>">
+  <img class="hint_image" src="<%= @hint.image_url%>">
   <br>
   <div class="tags">
     <% @hint.tags.each do |tag| %>

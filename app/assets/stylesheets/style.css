@@ -104,3 +104,13 @@ img {
   max-width: 100%; 
   margin: 0 auto;
 }
+
+.hint_image {
+  max-width: 100%;
+}
+
+.font_override {
+  background-color: rgba(0,0,0,0.5);
+  font-size: 40px;
+}
+
